@@ -2,14 +2,29 @@ import pokemonCardTml from '../templates/pokemon-card';
 
 const refs = {
   cardContainer: document.querySelector('.js-card-container'),
+  searchForm: document.querySelector('.js-search-form'),
 };
 
-fetchPokemon()
-  .then(renderPokemonCard)
-  .catch(error => console.log(error));
+refs.searchForm.addEventListener('submit', onSearch);
 
-function fetchPokemon() {
-  return fetch('https://pokeapi.co/api/v2/pokemon/2').then(response => response.json());
+function onSearch(e) {
+  e.preventDefault();
+  const form = e.currentTarget;
+  const searchQuery = form.elements.query.value;
+  if (!searchQuery.trim()) {
+    alert('Please, type pokemon ID');
+    return;
+  }
+
+  fetchPokemonById(searchQuery)
+    .then(renderPokemonCard)
+    .catch(onFetchError)
+    .finally(() => form.reset());
+}
+
+function fetchPokemonById(pokemonId) {
+  const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
+  return fetch(url).then(response => response.json());
   // .then(pokemon => {
   //   console.log(pokemon);
   //   renderPokemonCard(pokemon);
@@ -19,5 +34,10 @@ function fetchPokemon() {
 function renderPokemonCard(pokemon) {
   const markup = pokemonCardTml(pokemon);
   console.log(markup);
-  refs.cardContainer.insertAdjacentHTML('afterbegin', markup);
+  refs.cardContainer.innerHTML = markup;
+}
+
+function onFetchError(error) {
+  console.log(error);
+  alert('Ooops! Something gone wrong.');
 }
