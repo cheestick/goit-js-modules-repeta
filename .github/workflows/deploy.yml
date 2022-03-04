@@ -2,7 +2,7 @@ name: Build and deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, module-10-19-http-requests]
 
 jobs:
   build-and-deploy:
