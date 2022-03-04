@@ -1,9 +1,8 @@
 import pokemonCardTml from '../templates/pokemon-card';
+import API from './api-service';
+import getRefs from './get-refs';
 
-const refs = {
-  cardContainer: document.querySelector('.js-card-container'),
-  searchForm: document.querySelector('.js-search-form'),
-};
+const refs = getRefs();
 
 refs.searchForm.addEventListener('submit', onSearch);
 
@@ -16,19 +15,10 @@ function onSearch(e) {
     return;
   }
 
-  fetchPokemonById(searchQuery)
+  API.fetchPokemonById(searchQuery)
     .then(renderPokemonCard)
     .catch(onFetchError)
     .finally(() => form.reset());
-}
-
-function fetchPokemonById(pokemonId) {
-  const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
-  return fetch(url).then(response => response.json());
-  // .then(pokemon => {
-  //   console.log(pokemon);
-  //   renderPokemonCard(pokemon);
-  // })
 }
 
 function renderPokemonCard(pokemon) {
