@@ -5,7 +5,7 @@
   "main": "index.js",
   "homepage": "https://cheestick.github.io/goit-js-modules-repeta",
   "scripts": {
-    "dev": "parcel src/index.html --open --port 7777",
+    "dev": "parcel src/index.html --port 7777",
     "build": "parcel build src/*.html --public-url /goit-js-modules-repeta/"
   },
   "repository": {
@@ -24,5 +24,8 @@
     "parcel-plugin-nuke-dist": "^1.0.1",
     "posthtml-include": "^1.6.2",
     "sass": "^1.32.8"
+  },
+  "dependencies": {
+    "parcel-plugin-handlebars": "^0.4.4"
   }
 }
