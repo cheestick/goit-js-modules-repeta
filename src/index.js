@@ -12,7 +12,7 @@ const loadMoreBtn = new LoadMoreBtn({ selector: '[data-action="load-more"]', hid
 const newsApiService = new NewsApiService();
 
 refs.searchForm.addEventListener('submit', onSearch);
-loadMoreBtn.refs.button.addEventListener('click', onLoadMore);
+loadMoreBtn.refs.button.addEventListener('click', fetchArticles);
 
 function onSearch(e) {
   e.preventDefault();
@@ -20,17 +20,19 @@ function onSearch(e) {
   newsApiService.query = e.currentTarget.elements.query.value;
 
   if (newsApiService.query.trim() === '') return alert('Enter something!');
-  loadMoreBtn.show();
-  loadMoreBtn.disable();
+
   newsApiService.resetPage();
-  newsApiService.fetchArticles(searchQuery).then(articles => {
-    clearArticlesContainer();
-    appendArticlesMarkup(articles);
-    loadMoreBtn.enable();
-  });
+  loadMoreBtn.show();
+  clearArticlesContainer();
+
+  fetchArticles();
 }
 
-function onLoadMore() {
+// function onLoadMore() {
+//   fetchArticles();
+// }
+
+function fetchArticles() {
   loadMoreBtn.disable();
   newsApiService.fetchArticles(searchQuery).then(articles => {
     appendArticlesMarkup(articles);
