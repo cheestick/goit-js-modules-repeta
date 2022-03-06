@@ -1,4 +1,4 @@
-import NAS from './js/news-service.js';
+import NewsApiService from './js/news-service.js';
 import './sass/main.scss';
 
 const refs = {
@@ -7,18 +7,16 @@ const refs = {
   loadMore: document.querySelector('[data-action="load-more"]'),
 };
 
-const newsApiService = new NAS();
+const newsApiService = new NewsApiService();
 
 refs.searchForm.addEventListener('submit', onSearch);
 refs.loadMore.addEventListener('click', onLoadMore);
 
-let searchQuery = '';
-
 function onSearch(e) {
   e.preventDefault();
 
-  searchQuery = e.currentTarget.elements.query.value;
-
+  newsApiService.query = e.currentTarget.elements.query.value;
+  newsApiService.resetPage();
   newsApiService.fetchArticles(searchQuery);
 }
 
