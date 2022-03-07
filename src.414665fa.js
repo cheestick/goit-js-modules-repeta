@@ -2,7 +2,9 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 
 },{}],"clu1":[function(require,module,exports) {
 
-},{"../css/common.css":"en75"}],"Focm":[function(require,module,exports) {
-"use strict";require("./sass/main.scss");
-},{"./sass/main.scss":"clu1"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-js-modules-repeta/src.88f1b27c.js.map
+},{"../css/common.css":"en75"}],"PnOR":[function(require,module,exports) {
+const o="http://localhost:4040";function n(){return fetch(`${o}/books`).then(o=>o.json())}function t(n){return fetch(`${o}/books/${n}`).then(o=>o.json())}n().then(console.log),t(4).then(console.log),t(7).then(console.log);
+},{}],"Focm":[function(require,module,exports) {
+"use strict";require("./sass/main.scss"),require("./js/r-get");
+},{"./sass/main.scss":"clu1","./js/r-get":"PnOR"}]},{},["Focm"], null)
+//# sourceMappingURL=/goit-js-modules-repeta/src.414665fa.js.map
