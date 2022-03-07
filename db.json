@@ -146,8 +146,76 @@
       "id": 21
     },
     {
-      "query": "\n    query IntrospectionQuery {\n      __schema {\n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ",
-      "id": 22
+      "title": "Test Book",
+      "author": "Maksym Chystiakov",
+      "genres": [
+        "JS"
+      ],
+      "rating": 9.38,
+      "id": 23
+    },
+    {
+      "title": "Последнее королевство",
+      "author": "Бернард Корнуэлл",
+      "genres": [
+        "приключения"
+      ],
+      "rating": 8.38,
+      "id": 28
+    },
+    {
+      "title": "Pray of Ukraine",
+      "author": "Maksym Chystiakov",
+      "genres": [
+        "philosofy"
+      ],
+      "rating": 9,
+      "id": 29
+    },
+    {
+      "title": "Ukraine. The Liberty",
+      "author": "Maksym Chystiakov",
+      "genres": [
+        "politics"
+      ],
+      "rating": 8.5,
+      "id": 30
+    },
+    {
+      "title": "Will of Ukraine",
+      "author": "Maksym Chystiakov",
+      "genres": [
+        "memories"
+      ],
+      "rating": 9.89,
+      "id": 31
+    },
+    {
+      "title": "Will of Ukraine",
+      "author": "Maksym Chystiakov",
+      "genres": [
+        "memories"
+      ],
+      "rating": 9.89,
+      "id": 32
+    },
+    {
+      "title": "Pray of Ukraine",
+      "author": "Maksym Chystiakov",
+      "genres": [
+        "philosofy"
+      ],
+      "rating": 9,
+      "id": 33
+    },
+    {
+      "title": "Ukraine. The Liberty",
+      "author": "Maksym Chystiakov",
+      "genres": [
+        "politics"
+      ],
+      "rating": 8.5,
+      "id": 34
     }
   ],
   "users": [],
