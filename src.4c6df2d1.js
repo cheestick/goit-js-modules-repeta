@@ -2,9 +2,9 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 
 },{}],"clu1":[function(require,module,exports) {
 
-},{"../css/common.css":"en75"}],"BNWP":[function(require,module,exports) {
-const t="http://localhost:4040";function o(o,n){const e={method:"PATCH",headers:{"Content-Type":"application/json"},body:JSON.stringify(o)};return fetch(`${t}/books/${n}`,e).then(t=>t.json())}o({title:"Newes BBIGGESSTT HTML test book"},13).then(console.log),o({rating:1},18),o({rating:4,author:"Mango"},17);
+},{"../css/common.css":"en75"}],"fx3j":[function(require,module,exports) {
+const o="http://localhost:4040";function t(t){return fetch(`${o}/books/${t}`,{method:"DELETE"}).then(o=>o.json())}t(33).then(console.log);
 },{}],"Focm":[function(require,module,exports) {
-"use strict";require("./sass/main.scss"),require("./js/u-patch");
-},{"./sass/main.scss":"clu1","./js/u-patch":"BNWP"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-js-modules-repeta/src.f3df315e.js.map
+"use strict";require("./sass/main.scss"),require("./js/d-delete");
+},{"./sass/main.scss":"clu1","./js/d-delete":"fx3j"}]},{},["Focm"], null)
+//# sourceMappingURL=/goit-js-modules-repeta/src.4c6df2d1.js.map
