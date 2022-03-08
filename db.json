@@ -74,7 +74,7 @@
       "id": 8
     },
     {
-      "title": "Большая тестовая книга по CSS",
+      "title": "Big CSS book",
       "author": "Я",
       "genres": [
         "CSS"
@@ -92,7 +92,7 @@
       "id": 12
     },
     {
-      "title": "Большая новая тестовая книга по HTML",
+      "title": "Newes BBIGGESSTT HTML test book",
       "author": "Я",
       "genres": [
         "HTML"
@@ -102,7 +102,7 @@
     },
     {
       "title": "Тестовая книга по HTML",
-      "author": "Манго",
+      "author": "Mango",
       "genres": [
         "HTML"
       ],
