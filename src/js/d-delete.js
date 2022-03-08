@@ -9,4 +9,9 @@ function removeBookById(bookId) {
   return fetch(url, options).then(res => res.json());
 }
 
-removeBookById(33).then(console.log);
+// removeBookById(33).then(console.log);
+const someDBItem = {
+  name: 'some name',
+  price: '1000',
+  features: [{}, {}],
+};

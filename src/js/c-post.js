@@ -20,7 +20,9 @@ function addBook(book) {
   return fetch(`${BASE_URL}/books`, options).then(res => res.json());
 }
 
-addBook(newBook).then(renderBook);
+addBook(newBook)
+  .then(renderBook)
+  .catch(error => console.log(error));
 
 addBook({
   title: 'Pray of Ukraine',
