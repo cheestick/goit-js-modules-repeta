@@ -5,7 +5,7 @@
   "main": "index.js",
   "homepage": "https://cheestick.github.io/goit-js-modules-repeta",
   "scripts": {
-    "dev": "parcel src/index.html --open --port 7777",
+    "dev": "parcel src/index.html --port 7777",
     "build": "parcel build src/index.html --public-url /goit-js-modules-repeta/",
     "server": "json-server --watch db.json -p 4040 -d 300"
   },
