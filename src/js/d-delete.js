@@ -1,13 +1,12 @@
 const BASE_URL = 'http://localhost:4040';
 
-function deleteBooksById(update, bookId) {
+function removeBookById(bookId) {
+  const url = `${BASE_URL}/books/${bookId}`;
   const options = {
     method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(update),
   };
 
-  return fetch(`${BASE_URL}/books/${bookId}`, options).then(res => res.json());
+  return fetch(url, options).then(res => res.json());
 }
+
+removeBookById(33).then(console.log);
