@@ -2,9 +2,9 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 
 },{}],"clu1":[function(require,module,exports) {
 
-},{"../css/common.css":"en75"}],"UcEy":[function(require,module,exports) {
-const t="http://localhost:4040",e={title:"Will of Ukraine",author:"Maksym Chystiakov",genres:["memories"],rating:9.89};function o(e){const o={method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(e)};return fetch(`${t}/books`,o).then(t=>t.json())}function n(t){console.log("Becked requested. lets draw an interface"),console.log(t)}o(e).then(n),o({title:"Pray of Ukraine",author:"Maksym Chystiakov",genres:["philosofy"],rating:9}).then(n),o({title:"Ukraine. The Liberty",author:"Maksym Chystiakov",genres:["politics"],rating:8.5}).then(n);
+},{"../css/common.css":"en75"}],"BNWP":[function(require,module,exports) {
+const t="http://localhost:4040";function o(o,n){const e={method:"PATCH",headers:{"Content-Type":"application/json"},body:JSON.stringify(o)};return fetch(`${t}/books/${n}`,e).then(t=>t.json())}o({title:"Newes BBIGGESSTT HTML test book"},13).then(console.log),o({rating:1},18),o({rating:4,author:"Mango"},17);
 },{}],"Focm":[function(require,module,exports) {
-"use strict";require("./sass/main.scss"),require("./js/c-post");
-},{"./sass/main.scss":"clu1","./js/c-post":"UcEy"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-js-modules-repeta/src.ac4cdf9b.js.map
+"use strict";require("./sass/main.scss"),require("./js/u-patch");
+},{"./sass/main.scss":"clu1","./js/u-patch":"BNWP"}]},{},["Focm"], null)
+//# sourceMappingURL=/goit-js-modules-repeta/src.f3df315e.js.map
