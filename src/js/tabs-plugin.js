@@ -1,29 +1,44 @@
-const refs = {
-  controls: document.querySelector(`#tabs-1 [data-controls]`),
-  panes: document.querySelector(`#tabs-1 [data-panes]`),
+class Tabs {
+  constructor({ rootSelector, activeControlClass = 'active' }) {
+    this._refs = this._getRefs(rootSelector);
+    this._activeControlClass = activeControlClass;
+
+    this._bindEvents();
+  }
+
+  _getRefs(root) {
+    const refs = {};
+    refs.controls = document.querySelector(`${root} [data-controls]`);
+    refs.panes = document.querySelector(`${root} [data-panes]`);
+
+    return refs;
+  }
+
+  _bindEvents() {
+    this._refs.controls.addEventListener('click', this._onControlsClick.bind(this));
+  }
+
+  _onControlsClick(event) {
+    event.preventDefault();
+    if (event.target.nodeName !== 'A') {
+      console.log('This is not a reference');
+      return;
+    }
+
+    const currentActiveControlItem = this._refs.controls.querySelector(
+      `.${this._activeControlClass}`,
+    );
+  }
+}
+
+const options = {
+  rootSelector: '#tabs-1',
+  activeControlClass: 'control__item--active',
 };
 
-refs.controls.addEventListener('click', event => {
-  event.preventDefault();
-  if (event.target.nodeName !== 'A') {
-    console.log('This is not a reference');
-    return;
-  }
+const tabs1 = new Tabs(options);
 
-  const currentActiveControlItem = refs.controls.querySelector('.controls__item--active');
+const tabs2 = new Tabs(options);
 
-  if (currentActiveControlItem) {
-    currentActiveControlItem.classList.remove('controls__item--active');
-    const paneId = currentActiveControlItem.getAttribute('href').slice(1);
-    const pane = refs.panes.querySelector(`#${paneId}`);
-    pane.classList.remove('pane--active');
-  }
-
-  const controlItem = event.target;
-  controlItem.classList.add('controls__item--active');
-
-  const paneId = controlItem.getAttribute('href').slice(1);
-
-  const pane = refs.panes.querySelector(`#${paneId}`);
-  pane.classList.add('pane--active');
-});
+console.log(tabs1);
+console.log(tabs2);
