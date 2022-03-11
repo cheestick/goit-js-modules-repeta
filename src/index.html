@@ -21,7 +21,29 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="./js/papaparse.min.js"></script>
-    <script src="./index.js"></script>
+
+    <!-- <script src="./js/papaparse.min.js"></script>
+    <script src="./index.js"></script> -->
+    <script>
+      async function fetchUsers() {
+        const baseUrl = 'https://jsonplaceholder.typicode.com';
+        const userIds = [1, 2, 3, 4, 5];
+
+        const arrayOfPromises = userIds.map(async userId => {
+          const response = await fetch(`${baseUrl}/users/${userId}`);
+          return response.json();
+        });
+
+        const users = await Promise.all(arrayOfPromises);
+        return users;
+      }
+
+      async function logUsers() {
+        const users = await fetchUsers();
+        console.log(users);
+      }
+
+      logUsers();
+    </script>
   </body>
 </html>
